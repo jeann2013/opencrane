@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+
+    <title>OpenCrane</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+	<script charset="utf-8" type="text/javascript" src="js/jquery.js"></script>
+	<script charset="utf-8" type="text/javascript" src="http://190.35.198.122:8080/gruas/js/librerias.js"></script>
+    <link href="css/signin.css" rel="stylesheet">
+    <link href="css/navbar.css" rel="stylesheet">
+  </head>
+
+  <body>
+  	<script>
+  		function panel(){
+  			var url = window.location.href;
+  			alert(url);
+			var n = url.search("=");
+			n=n+1;
+			var m = url.search("&");
+			alert(m);
+			m=m-1;
+			var cod_usuario = url.substr(n,m);
+			
+			//var cod_usuario = url.substr(n,url.length);
+			
+			window.location.assign("panel.html?usuario="+cod_usuario);
+		}
+  		
+  		
+  		
+  	</script>
+ <div class="jumbotron">
+    <div align="center" class="container">
+
+      <form name="form1" id="form1" class="form-signin">
+      <table class="table" name='data' id="data">
+      	<tr>
+      		<td colspan="3"> <button id="entrar" name="entrar" onclick="panel();" class="btn btn-lg btn-danger btn-block" type="button">Salir</button></td>
+      	</tr>
+      	<tr>
+      		<td>
+      			Unidad
+      		</td>
+      		<td>
+      			Empresa
+      		</td>
+      		<td>
+      			Direccion/Detalle
+      		</td>
+      	</tr>
+      	<tr>
+      		<td>
+      			
+      		</td>
+      		<td>
+      			
+      		</td>
+      		<td>
+      			
+      		</td>
+      	</tr>
+      	<tr>
+      		<td colspan="4">
+      			<input type="text" required="true" name="kilometraje" autofocus="true" placeholder="KILOMETRAJE" id="kilometraje" class="form-control" value="" />
+      		</td>
+      	</tr>
+      	<tr>
+      		<td colspan="3">
+      			<input type="button"  class="btn btn-lg btn-primary btn-block" value="TOMADA Y EN CAMINO" />
+      		</td>
+      	</tr>
+      </table>
+      </form>
+    </div> 
+    </div>
+  </body>
+</html>

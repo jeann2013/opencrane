@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+
+    <title>OpenCrane</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+    
+	
+	
+	
+	<script charset="utf-8" type="text/javascript" src="js/jquery.js"></script>
+	<script src="js/modal.js"></script>
+	<script charset="utf-8" type="text/javascript" src="http://190.35.198.122:8080/gruas/js/librerias.js"></script>
+    <link href="css/signin.css" rel="stylesheet">
+    <link href="css/navbar.css" rel="stylesheet">
+  </head>
+
+  <body onload="buscar_solicitudes();buscar_gruas();">
+  	
+
+
+  	<script>
+  	
+  		function salir()
+  		{window.location.assign("index.html");}
+  		function delay()
+		{
+		  setTimeout('buscar_solicitudes()',5000)
+		}
+  		
+  	
+  	</script>
+
+      <form name="form1" id="form1" class="">
+    
+  <div class="modal fade" id="solicitud24" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button"  class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">TOMADA Y EN CAMINO</h4>
+      </div>
+      <div class="modal-body">Grua-Placa:
+       <select name="grua" id="grua">
+       	<option value=""></option>
+       </select>
+      </div>
+      <div class="modal-body">
+       <input type="text" name="kilometraje" id="kilometraje"  class="form-control" autofocus="true" placeholder="KILOMETRAJE" />
+      </div>
+      <div class="modal-footer">
+      	<button type="button" onclick="enviado_gruas()" class="btn btn-success" >Tomada y en Camino</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <input type="hidden" name="chofer" id="chofer" value="" />
+        <input type="hidden" name="cod_est" id="cod_est" value="" />
+        <input type="hidden" name="cod_sol" id="cod_sol" value="" />
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="modal fade" id="solicitud25" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button"  class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">EMBARCADA Y EN CAMINO A SEDE</h4>
+      </div>
+      <div class="modal-body">Grua-Placa:
+       <input type="text" name="grua_placa" id="grua_placa" class="form-control" value="" />
+      </div>
+      <div class="modal-body">
+       <input type="text" name="kilometraje2" id="kilometraje2"  class="form-control" autofocus="true" placeholder="KILOMETRAJE" />
+      </div>
+      <div class="modal-footer">
+      	<button type="button" onclick="tomado_gruas()" class="btn btn-success" >Embarcado y Camino a Sede</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <input type="hidden" name="chofer2" id="chofer2" value="" />
+        <input type="hidden" name="cod_est2" id="cod_est2" value="" />
+        <input type="hidden" name="cod_sol2" id="cod_sol2" value="" />
+        <input type="hidden" name="grua2" id="grua2" value="" />
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="solicitud26" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button"  class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">DESPACHADO</h4>
+      </div>
+      <div class="modal-body">Grua-Placa:
+       <input type="text" name="grua_placa2" id="grua_placa2" class="form-control" value="" />
+      </div>
+      <div class="modal-body">Monto:
+       <input type="text" name="monto" id="monto" class="form-control" value="" />
+      </div>
+      <div class="modal-body">
+       <input type="text" name="kilometraje3" id="kilometraje3"  class="form-control" autofocus="true" placeholder="KILOMETRAJE" />
+      </div>
+      <div class="modal-footer">
+      	<button type="button" onclick="despacho_gruas()" class="btn btn-success" >DESPACHADO</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <input type="hidden" name="chofer3" id="chofer3" value="" />
+        <input type="hidden" name="cod_est3" id="cod_est3" value="" />
+        <input type="hidden" name="cod_sol3" id="cod_sol3" value="" />
+        <input type="hidden" name="grua3" id="grua3" value="" />
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      	<div align="center">
+      <table  width="100%"   name='data' id="data" class="table-bordered"  >
+      	<tr>
+      		<td  colspan="6" align="center"><strong> Solicitudes de Gruas</strong></td>
+      		
+      	</tr>
+      	<tr>
+      		<td colspan="6"> <button id="entrar" name="entrar" onclick="salir();" class="btn btn-lg btn-danger btn-block" type="button">Salir</button></td>
+      	</tr>
+      	<tr>
+      		<td colspan="6"> <button id="particular" name="particular" onclick="" class="btn btn-lg btn-success btn-block" type="button">Servicio Particular</button></td>
+      	</tr>
+      	<tr>
+      		<td width="" align="center"><strong>Unidad</strong></td>
+      		<td width="" align="center"><strong>Fecha</strong></td>
+      		<td width="" align="center"><strong>Hora</strong></td>
+      		<td width="" align="center"><strong>Empresa</strong></td>
+      		<td width="" align="center"><strong>Direccion/Detalles</strong></td>
+      		<td width="" align="center"><strong>Accion</strong></td>
+      	</tr>
+      
+      </table>
+   
+      </div>
+      </form>
+
+     <div align="center" id="footer">
+      <div class="container">
+      
+        <span class="label label-default">&copy JEAN CARLOS NUNEZ HERNANDEZ</span>
+      </div>
+    </div>
+ 
+  </body>
+</html>

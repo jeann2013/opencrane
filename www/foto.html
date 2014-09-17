@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>Cargar imagen</title>
+    <meta charset="utf-8" />
+
+    <script type="text/javascript">
+
+      document.addEventListener("DOMContentLoaded", inicio, false);
+
+      function inicio()
+      {
+        var nuevaImagen = new Image();
+		var doc = document.formu;
+		
+        alert("Se procede a la carga en memoria de la imagen");
+		doc.imagen.src="http://190.35.198.122:8080/opentaxi/foto/669081689.jpg";
+		
+        
+      }
+
+      function cargarImagen(url)
+      {
+        var imagen = new Image();
+        imagen.onload = imagenCargada;
+        imagen.src = url;
+        return imagen;
+      }
+
+      function imagenCargada()
+      {
+        alert("La imagen se ha cargado correctamente");
+      }
+
+    </script>
+    <form id="formu" name="formu">
+	<img  id="imagen" src="" />
+	</form>
+   </head>
+
+  <body>
+  </body>
+
+</html> 

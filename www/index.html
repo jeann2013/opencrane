@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+
+    <title>OpenCrane</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+	<script charset="utf-8" type="text/javascript" src="js/jquery.js"></script>
+	<script charset="utf-8" type="text/javascript" src="http://190.35.198.122:8080/gruas/js/librerias.js"></script>
+    <link href="css/signin.css" rel="stylesheet">
+    <link href="css/navbar.css" rel="stylesheet">
+  </head>
+
+  <body>
+  	<script>
+  		function panel(codigo_cliente){
+  			var url = window.location.href;
+			var n = url.search("=");
+			n=n+1;
+			var cod_usuario = url.substr(n,url.length);
+			window.location.assign("panel.html?usuario="+codigo_cliente);
+		}
+  		
+  		
+  	</script>
+ <div class="jumbotron">
+    <div align="center" class="container">
+
+      <form name="form1" id="form1" class="form-signin">
+      	<span  class="label label-danger">OpenCrane, ver:0.10</span><br>
+        <h2 class="form-signin-heading">Acceso</h2>
+        <input id="clave" name="clave" autofocus="true" required type="password" class="form-control" placeholder="Clave">       
+        <button id="entrar" name="entrar" onclick="connect()" class="btn btn-lg btn-primary btn-block" type="button">Entrar</button>
+         <input id="cod_cliente" name="cod_cliente" value="" type="hidden" />  
+
+      </form>
+
+    </div> 
+     <div align="center" id="footer">
+      <div class="container">
+        
+        <span class="label label-default">&copy JEAN CARLOS NUNEZ HERNANDEZ</span>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>
